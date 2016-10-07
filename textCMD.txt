@@ -1,0 +1,85 @@
+entrée : clavier et sortie : terminal
+
+appel d'un premier appel systeme : fork()
+
+fork() => parent qui continue à tourner
+
+exec() => fils qui change le programme a executer
+
+stdin[0] => premier fichier = clavier
+[1] out = ecran
+[2] out = error
+
+---------------------------------------------------------------------------
+
+cat file1.txt => affiche le contenu
+
+cat > file2.txt file1.text ==> cette commande permet d'écrire le contenu de file2 dans file1
+
+cat > file2.txt ==> ecrit le contenu du terminal
+
+echo msg > file3.txt => ecrit le mot "msg" dans un nouveau fichier
+
+cat > file2.text
+
+cat file1.txt | grep bonjour => récupere tous les "bonjour" du fichier "file1.txt"
+
+cat file1.text | wc -l => donne le nombre de ligne du fichier w = world c = character
+
+find -name '*fil*' => retourne la liste des fichiers qui contiennent "fil" dans leur nom.
+
+find -name '*fil*'
+
+---------------------------------------------------------------------------------
+
+pour retrouver le plus grand fichier de la bibliothèque java :
+
+(find . -name \*.java -exec wc -l {} \;) | sort -n | tail -10 => trouve tous les fichiers qui finissent par "java" puis execute un nouveau processus (exec), puis compte les lignes pour trouver le plus grand, puis
+trie les élèments par ordre décroissant, puis donne les 10 premiers
+
+export i=1 => crée une variable
+echo $i => montre la variable
+unset i => supprime la variable
+
+--------------------------------------------------------------------------------
+
+i = $(wc -l file.txt) => met le nombre de ligne de file.txt dans une variable
+'
+$
+
+"
+*
+\
+\n (espace)
+
+
+Caracteres spéciaux (il faut mettre un anti slash !!! \)
+
+------------------------------------------------------------------------------
+
+for var in 1 2 3 4; do echo "zineb $var"; done
+zineb 1
+zineb 2
+zineb 3
+zineb 4
+
+-----------------------------------------------------------------------------
+
+#!/bin/bash
+## 20106-10-07 : zineb
+
+for f in $(find -name \*.java)
+do
+echo $f
+done
+
+$PATH => variable du chemin du fichier
+
+
+Programme qui permet de de lister tout les fichiers qui finissent par .java
+ne pas oublier le chmod 755 pour pouvoir l'utiliser
+chmod 755 count.sh => donner les droits
+./count.sh
+
+
+------------------------------------------------------------------------------
